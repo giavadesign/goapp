@@ -1,0 +1,55 @@
+<!--=====================================
+= Login
+======================================-->
+<div id="goapp_login_wrapper">
+  <!-- wrapper_inner -->
+  <div class="goapp_login_wrapper_inner">
+    <!-- mask -->
+    <div class="goapp_login_mask">
+      <!-- marchio -->
+      <div class="goapp_login_mask_marchio">
+        <img src="assets/img/marchio-digivents-w.png" alt="">
+      </div>
+      <!-- marchio / -->
+      <!-- title -->
+      <div class="goapp_login_mask_title">
+        <p>Area Riservata</p>
+        <span>Per accedere alla sezione richiesta, inserisci username e password</span>
+        <small>User: johndoe | Password: d1g13v3nts</small>
+      </div>
+      <!-- title / -->
+
+      <!-- form -->
+      <form name="goapp_frm_login" id="goapp_frm_login" action="api/v1/login" method="POST" enctype="multipart/form-data" data-parsley-validate="">
+        <!-- row -->
+        <div class="row">
+          <!-- col -->
+          <div class="col-md-12 mb-3">
+            <input type="text" class="form-control" name="username" placeholder="username" required>
+          </div>
+          <!-- col / -->
+          <!-- col -->
+          <div class="col-md-12 mb-3">
+            <input type="password" class="form-control" name="password" placeholder="password" required>
+          </div>
+          <!-- col / -->
+        </div>
+        <!-- row / -->
+
+        <!-- row -->
+        <div class="row">
+          <!-- col -->
+          <div class="col-md-12">
+            <button type="submit" id="goapp_frm_login_submit_button" class="btn btn-primary">Login</button>
+          </div>
+          <!-- col / -->
+        </div>
+        <!-- row / -->
+      </form>
+      <!-- form / -->
+    </div>
+    <!-- mask / -->
+  </div>
+  <!-- wrapper_inner / -->
+</div>
+<!--==========   Login   ========-->

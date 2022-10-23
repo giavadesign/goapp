@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{REQUST_FILENAME} !-d
+RewriteCond %{REQUST_FILENAME} !-f
+RewriteCond %{REQUST_FILENAME} !-l
+
+#categories 
+RewriteRule ^login$ Resources/login.php [L]
+
+#users
+RewriteRule ^users/([0-9]+)$ Resources/users.php?u_id=$1 [L]
+RewriteRule ^users$ Resources/users.php [L]

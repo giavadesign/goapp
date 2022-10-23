@@ -1,0 +1,314 @@
+<!-- header -->
+<header id="header-main">
+  <div class="header_marchio">
+    <a href="index.html">
+      <img src="assets/img/marchio-digivents-w.png" alt="">
+    </a>
+  </div>
+</header>
+<!-- header / -->
+
+<main class="goapp_main_content">
+  <h2 class="goapp_h2 text-center">
+    Goapp Web <strong>Application</strong>
+  </h2>
+
+  <!-- container -->
+  <div class="container mt-5">
+
+    <!-- row -->
+    <div class="goapp_buttons_bar mb-3">
+      <button type="button" id="goapp_open_form_insert_trigger" class="btn btn-primary  btn-lg" data-bs-toggle="modal" data-bs-target="#goapp_modal_insert" >
+        <i class="fa-regular fa-plus"></i>
+        Aggiungi Utente
+      </button>
+      <button type="button" id="goapp_logout_trigger" class="btn btn-danger btn-lg">
+        Logout
+      </button>
+    </div>
+    <!-- row / -->
+    
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col">
+        <!-- tabulator -->
+        <div class="goapp_tabulator_filters_wrapper">
+          <!-- inner -->
+          <div class="goapp_tabulator_filters_inner">
+
+            <div>
+              <label for="">Filtra campo</label>
+              <select id="filter-field" class="form-select">
+                <option></option>
+                <option value="Surname">Cognome</option>
+                <option value="Name">Nome</option>
+                <option value="Azienda">Azienda</option>
+                <option value="Role">Ruolo</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Operatore di confronto</label>
+              <select id="filter-type" class="form-select">
+                <option value="=">=</option>
+                <option value="<"><</option>
+                <option value="<="><=</option>
+                <option value=">">></option>
+                <option value=">=">>=</option>
+                <option value="!=">!=</option>
+                <option value="like">like</option>
+              </select>
+            </div>
+            
+            <div>
+              <label>valore</label>
+              <input id="filter-value" class="form-control" type="text" placeholder="value to filter">
+            </div>
+
+            <div>
+              <div class="d-grid gap-2 pt-3">
+                <button id="filter-clear" class="btn btn-warning btn-òg d-grid gap-2 d-md-block">AZZERA FILTRI</button>
+              </div>
+            </div>
+          </div>
+          <!-- inner -->
+        </div>
+        <div id="goapp_main_table"></div>
+        <!-- tabulator / -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row / -->
+
+  </div>
+  <!-- container -->
+</main>
+
+
+<!--=====================================
+= json viewer
+======================================-->
+<div id="goapp_json_wrapper">
+  <div id="goapp_json"></div>
+</div>
+<div id="goapp_json_panel_trigger_wrapper">
+  <div id="goapp_json_panel_trigger_inner">
+    <span id="goapp_json_panel_trigger">
+      Json <br>Viewer
+    </span>
+  </div>   
+</div>
+<!--==========   json viewer   ========-->
+
+<!--=====================================
+= modal user detail
+======================================-->
+<div class="modal fade" id="goapp_modal_detail" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dettaglio prodotto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- body -->
+      <div class="modal-body">
+        <table class="table table-striped">
+        
+          <tbody>
+            <tr>
+              <td><b>Codice Prodotto</b></th>
+              <td><span id="prod_detail_sku_code"></span></td>
+            </tr>
+            <tr>
+              <td><b>Prodotto</b></th>
+                <td><span id="prod_detail_prod_name"></span></td>
+              </tr>
+              <tr>
+                <td><b>Categoria di appartnenza</b></th>
+                <td><span id="prod_detail_cat_name"></span></td>
+            </tr>
+            <tr>
+              <td><b>Prezzo</b></th>
+                <td><span id="prod_detail_price"></span></td>
+            </tr>
+            <tr>
+              <td><b>Stock</b></th>
+              <td><span id="prod_detail_stock"></span></td>
+            </tr>
+            <tr>
+              <td><b>Foto</b></th>
+              <td><span id="prod_detail_picture"></span></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <!-- body / -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--==========   modal user detail   ========-->
+
+<!--=====================================
+= modal insert
+======================================-->
+<div class="modal fade" id="goapp_modal_insert" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Aggiungi utente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form name="goapp_frm_insert_user" id="goapp_frm_insert_user" action="api/v1/users" method="POST" enctype="multipart/form-data" data-parsley-validate="">
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Username:</label>
+              <input type="text" class="form-control" name="user_username" required>
+            </div>
+            <!-- col / -->
+          
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Password:</label>
+              <input type="password" class="form-control" name="user_password" required>
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Nome:</label>
+              <input type="text" class="form-control" name="user_name" required>
+            </div>
+            <!-- col / -->
+          
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Cognome:</label>
+              <input type="text" class="form-control" name="user_surname" required>
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Company:</label>
+              <input type="text" class="form-control" name="user_company">
+            </div>
+            <!-- col / -->
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Ruolo:</label>
+              <input type="text" class="form-control" name="user_role">
+            </div>
+            <!-- col / -->
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Email:</label>
+              <input type="email" class="form-control" name="user_email">
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" id="goapp_frm_insert_submit_button" class="btn btn-primary" form="goapp_frm_insert_user">Inserisci</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--==========   modal insert   ========-->
+
+<!--=====================================
+= modal update
+======================================-->
+<div class="modal fade" id="goapp_modal_update" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modiifca Utente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form name="goapp_frm_update_user" id="goapp_frm_update_user" action="api/v1/users" method="POST" enctype="multipart/form-data" data-parsley-validate="">
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Username:</label>
+              <input type="text" class="form-control" name="user_username" required>
+            </div>
+            <!-- col / -->
+          
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Password:</label>
+              <input type="password" class="form-control" name="user_password" required>
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Nome:</label>
+              <input type="text" class="form-control" name="user_name" required>
+            </div>
+            <!-- col / -->
+          
+            <!-- col -->
+            <div class="col-md-6 mb-3">
+              <label class="col-form-label">Cognome:</label>
+              <input type="text" class="form-control" name="user_surname" required>
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Company:</label>
+              <input type="text" class="form-control" name="user_company">
+            </div>
+            <!-- col / -->
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Ruolo:</label>
+              <input type="text" class="form-control" name="user_role">
+            </div>
+            <!-- col / -->
+            <!-- col -->
+            <div class="col-md-4 mb-3">
+              <label class="col-form-label">Email:</label>
+              <input type="email" class="form-control" name="user_email">
+            </div>
+            <!-- col / -->
+          </div>
+          <!-- row / -->
+
+          <input type="hidden" name="u_id" value="">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" id="goapp_frm_update_submit_button" class="btn btn-primary" form="goapp_frm_update_user">Modifica</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--==========   modal update   ========-->

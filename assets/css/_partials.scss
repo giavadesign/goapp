@@ -1,0 +1,41 @@
+$color_00: #000;
+$color_01: #111;
+$color_02: #222;
+$color_03: #333;
+$color_04: #444;
+$color_05: #555;
+$color_06: #666;
+$color_07: #777;
+$color_08: #888;
+$color_09: #999;
+$color_10: #E7E7E7;
+$color_11: #FFF;
+$color_CC: #CCC;
+$color_dark_black: #1a1a1a;
+$color_light_black: #2a2a2a;
+
+
+$color_001 : #194fa3;
+$color_002 : #a4c138;
+
+$transition_def_duration: 0.8s;
+$transition_def_ease: ease;
+
+@mixin border_box() {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin transitions($duration,$ease) {
+-webkit-transition: all $duration $ease;
+	-moz-transition: all $duration $ease;
+	-o-transition: all $duration $ease;
+	transition: all $duration $ease;
+}
