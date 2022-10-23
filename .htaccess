@@ -1,9 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{REQUST_FILENAME} !-d
-RewriteCond %{REQUST_FILENAME} !-f
-RewriteCond %{REQUST_FILENAME} !-l
-
-
-#RewriteRule ^login$ Views/login.html [L]
-#RewriteRule ^index$ Views/goapp.html [L]

@@ -69,7 +69,7 @@ function goapp_refresh_tabulator( obj ){
       { title:"Nome", field:"Name", responsive:0 },
       { title:"Azienda", field:"Azienda", responsive:2 },
       { title:"Ruolo", field:"Role", responsive:2 },
-      { title:"Recapiti", field:"category",responsive:3 },
+      { title:"Email", field:"Email", responsive:3 },
       { title: "Azioni",  width:100, responsive:0, field: "Id",
        formatter: function(cell, formatterParams, onRendered){
         console.log(cell)
